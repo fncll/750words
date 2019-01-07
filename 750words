@@ -105,7 +105,7 @@ def edit(path, editor):
         git_commit(path, message)
 
     if wordcount < 750:
-        print('You have written %i out of 750 words so far.' % wordcount)
+        print('Git: %s - You have written %i out of 750 words so far.' % (GIT_INSTALLED, wordcount))
     else:
         print('You wrote %i words today. Great job!' % wordcount)
 
