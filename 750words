@@ -11,16 +11,14 @@ except:
     # python 3
     import configparser as ConfigParser
 
-
 def is_executable(program):
     try:
-        subprocess.check_call(
-            program,
-            stdout=subprocess.PIPE,
-            stderr=suvprocess.PIPE
-        )
+        # pipe output to /dev/null for silence
+        null = open("/dev/null", "w")
+        subprocess.Popen("git", stdout=null, stderr=null)
+        null.close()
         return True
-    except:
+    except OSError:
         return False
 
 GIT_INSTALLED = is_executable(['git', '--version'])
