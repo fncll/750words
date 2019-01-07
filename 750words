@@ -15,7 +15,9 @@ except:
 def is_executable(program):
     try:
         subprocess.check_call(
-            program
+            program,
+            stdout=subprocess.PIPE,
+            stderr=suvprocess.PIPE
         )
         return True
     except:
